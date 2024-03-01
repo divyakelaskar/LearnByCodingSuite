@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started with Chart JS <with www.chartjs3.com<>/title>
+    <title>Horizontal scrollable line chart</title>
     <style>
       * {
         margin: 0;
@@ -22,14 +22,14 @@
       }
       .chartCard {
         width: 100vw;
-        height: calc(100vh - 40px);
+        height: calc(100vh - 20px);
         background: rgba(54, 162, 235, 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
       }
       .chartBox {
-        width: 700px;
+        width: 900px;
         padding: 20px;
         border-radius: 20px;
         border: solid 3px rgba(54, 162, 235, 1);
@@ -47,10 +47,10 @@
     <script>
     // setup 
     const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      labels: ['Mon1', 'Tue2', 'Wed3', 'Thu4', 'Fri5', 'Sat6', 'Sun7','Mon8', 'Tue9', 'Wed10', 'Thu11', 'Fri12', 'Sat13', 'Sun14','Mon15', 'Tue16', 'Wed17', 'Thu18', 'Fri19', 'Sat20', 'Sun21'],
       datasets: [{
         label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9],
+        data: [40, 12, 6, 9, 12, 3, 9,18, 12, 6, 9, 12, 3, 9,18, 12, 6, 9, 12, 3, 9],
         backgroundColor: [
           'rgba(255, 26, 104, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -79,6 +79,10 @@
       data,
       options: {
         scales: {
+          x: {
+            min: 0,
+            max: 6,
+          },
           y: {
             beginAtZero: true
           }
@@ -92,6 +96,31 @@
       config
     );
 
+    function scroller(scroll, myChart) {
+  console.log(scroll);
+  const dataLength = myChart.data.labels.length;
+  
+  if (scroll.deltaY > 0) {
+    // Scroll down
+    if (myChart.config.options.scales.x.max < dataLength - 1) {
+      myChart.config.options.scales.x.min += 1;
+      myChart.config.options.scales.x.max += 1;
+    }
+  } else if (scroll.deltaY < 0) {
+    // Scroll up
+    if (myChart.config.options.scales.x.min > 0) {
+      myChart.config.options.scales.x.min -= 1;
+      myChart.config.options.scales.x.max -= 1;
+    }
+  }
+  
+  myChart.update();
+}
+
+    
+    myChart.canvas.addEventListener('wheel', (e) =>{
+      scroller(e, myChart);
+    });
     </script>
 
   </body>
