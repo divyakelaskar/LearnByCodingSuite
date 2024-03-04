@@ -8,6 +8,7 @@ A compilation of small react apps built to understand various concepts I come ac
 - [Realtime CPU Usage Demo](#realtime-cpu-usage-demo)
 - [Realtime Graph Socket Demo](#realtime-graph-socket-demo)
 - [WebSocket Demo](#websocket-demo)
+  - [Why use WebSockets?](#why-use-websockets)
   
 ## chart-js-demo
 ![chartjsdemo.png](screenshots\image.png)
@@ -37,3 +38,8 @@ Data sent from the client
 ![client_console](screenshots/client_console.png)
 
 Client Console
+
+### Why use WebSockets?
+- When the data exchange is 2-way (not just from server to client)
+- Connection is initiated only when data is required and ended immediately after the data is fetched. 
+- Keeps the number of active connections to database at minimum.
