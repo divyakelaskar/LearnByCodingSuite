@@ -11,7 +11,7 @@ A compilation of small react apps built to understand various concepts I come ac
   - [Why use WebSockets?](#why-use-websockets)
   
 ## chart-js-demo
-![chartjsdemo.png](screenshots\image.png)
+![chartjsdemo.png](screenshots/image.png)
 A static app to learn setup a simple line chart with the help of ChartJS library. 
 
 ## Horizontal scrollable line chart
