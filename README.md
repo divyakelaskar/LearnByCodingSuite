@@ -16,7 +16,7 @@ A static app to learn setup a simple line chart with the help of ChartJS library
 
 ## Horizontal scrollable line chart
 ![linechart_horizontal_scroll.gif](screenshots\linechart_horizontal%20scroll.gif)
-A linechart which limits the number of labels displayed on the x axis at a time and uses the scrollbar to navigate to the rest of the data.
+A linechart which limits the number of labels displayed on the x axis at a time and uses the scrolling effect to navigate to the rest of the data.
 
 ## Realtime CPU Usage Demo
 ![realtime_cpu_usage](screenshots/realtime%20cpu%20usage%20linegraph.gif)
