@@ -3,6 +3,8 @@
 A compilation of small react apps built to understand various concepts I come across with.
 
 ## Table of Contents <!-- omit in toc -->
+- [Axios Post Demo](#axios-post-demo)
+  - [Why axios is used?](#why-axios-is-used)
 - [chart-js-demo](#chart-js-demo)
 - [Horizontal scrollable line chart](#horizontal-scrollable-line-chart)
 - [Realtime CPU Usage Demo](#realtime-cpu-usage-demo)
@@ -10,6 +12,13 @@ A compilation of small react apps built to understand various concepts I come ac
 - [WebSocket Demo](#websocket-demo)
   - [Why use WebSockets?](#why-use-websockets)
   
+## Axios Post Demo
+![axios_post_demo.png](screenshots/axios_post_demo.png)
+### Why axios is used?
+- send asynchronous HTTP requests to REST endpoints
+- perform CRUD operations
+- communicate with the backend
+
 ## chart-js-demo
 ![chartjsdemo.png](screenshots/image.png)
 A static app to learn setup a simple line chart with the help of ChartJS library. 
