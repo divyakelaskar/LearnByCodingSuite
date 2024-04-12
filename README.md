@@ -11,6 +11,7 @@ A compilation of small react apps built to understand various concepts I come ac
 - [Realtime Graph Socket Demo](#realtime-graph-socket-demo)
 - [WebSocket Demo](#websocket-demo)
   - [Why use WebSockets?](#why-use-websockets)
+- [AmchartJS Radar Gauge chart :](#amchartjs-radar-gauge-chart-)
   
 ## Axios Post Demo
 ![axios_post_demo.png](screenshots/axios_post_demo.png)
@@ -52,3 +53,6 @@ Client Console
 - When the data exchange is 2-way (not just from server to client)
 - Connection is initiated only when data is required and ended immediately after the data is fetched. 
 - Keeps the number of active connections to database at minimum.
+
+## AmchartJS Radar Gauge chart :
+![gauge_chart](screenshots/gauge_chart.png)
