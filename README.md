@@ -1,6 +1,6 @@
 # LearnByCodingSuite <!-- omit in toc -->
 
-A compilation of small react apps built to understand various concepts I come across with.
+A compilation of small apps built to understand various concepts I come across with.
 
 ## Table of Contents <!-- omit in toc -->
 - [Axios Post Demo](#axios-post-demo)
