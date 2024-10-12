@@ -5,13 +5,11 @@
 
 To locally run a different branch from your repository, you need to follow a few simple steps using Git. This will allow you to switch between branches, work on them, and run the project as needed. Here’s how you can do it:
 
-> [!IMPORTANT]  
-> Create the branch on remote platform then track it through a locally created branch.
-
 ### 1. **Check for Available Branches**
+   First, list all the branches that are available locally and remotely.
    
    - **To see local branches:**
-     ```bash    
+     ```bash
      git branch
      ```
      This will list all the branches that you have locally.
@@ -22,7 +20,7 @@ To locally run a different branch from your repository, you need to follow a few
      ```
      This will list both local and remote branches. Remote branches will be listed as `origin/branch-name`.
 
-### 2. **Fetch Latest Updates **
+### 2. **Fetch Latest Updates (Optional)**
    If you want to make sure you have the latest branches and updates from the remote repository, run:
    ```bash
    git fetch
@@ -32,6 +30,15 @@ To locally run a different branch from your repository, you need to follow a few
 ### 3. **Switch to the Desired Branch**
    Use the `git checkout` or `git switch` command to change to the branch you want to work on or run.
 
+   - **Switch to an existing local branch:**
+     ```bash
+     git checkout branch-name
+     ```
+     or
+     ```bash
+     git switch branch-name
+     ```
+
    - **If the branch is remote (you don’t have it locally yet), you can check it out directly like this:**
      ```bash
      git checkout -b branch-name origin/branch-name
@@ -39,9 +46,6 @@ To locally run a different branch from your repository, you need to follow a few
      This command:
      - Creates a local branch named `branch-name`.
      - Tracks the remote branch `origin/branch-name`.
-  
-> [!IMPORTANT]  
-> Keep local and remote branch names same for simplicity.
 
 ### 4. **Install Dependencies (If Required)**
    If your project has dependencies (e.g., `npm`, `pip`, etc.), you may need to install them for that branch. Usually, this happens if there are different dependencies in this branch compared to the one you were working on before.
@@ -49,7 +53,7 @@ To locally run a different branch from your repository, you need to follow a few
 ### 5. **Run the Project**
    The process will depend on your specific setup.
 
-### 6. **Making Changes and Committing on Another Branch (can be done with VSCode UI as well)**
+### 6. **Making Changes and Committing on Another Branch**
    Once you're on the correct branch, you can start making changes to files, add them to staging, and commit them.
 
    - **Staging changes:**
@@ -62,7 +66,7 @@ To locally run a different branch from your repository, you need to follow a few
      git commit -m "Your commit message"
      ```
 
-### 7. **Pushing Changes to Remote (can be done with VSCode UI as well)**
+### 7. **Pushing Changes to Remote**
    If you made changes and want to push them to the remote repository, do the following:
    ```bash
    git push origin branch-name
