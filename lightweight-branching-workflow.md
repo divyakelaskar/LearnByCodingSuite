@@ -1,0 +1,4 @@
+- Main branch (or `main/master`) stays stable.
+- Each developer creates a branch per feature (or per bug fix) with a meaningful name (`feature/login`, `fix/api-errors`, etc.).
+- After completing a task, open a pull request, and the other person reviews it. Then, merge into the main branch.
+- If something breaks, you can easily revert that specific branch without affecting other work.
