@@ -1,4 +1,4 @@
-# Main branch stays stable.
+# Main branch stays stable..
 
 # Each developer creates a branch per feature (or per bug fix) with a meaningful name (`feature/login`, `fix/api-errors`, etc.).
 
