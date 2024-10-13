@@ -24,6 +24,8 @@ const App = () => {
             setStudents(data);
         });
 
+        // if a setInterval of 1 sec is required, then what is websocket even doing...
+
         const intervalId = setInterval(fetchData, 1000);
 
         return () => {
