@@ -180,3 +180,41 @@ git push origin branch-name
    ```
 
 </details>
+
+<br>
+
+<details>
+  <summary>🗑️ Scenario 5 : To delete a branch at the remote and reflect that change locally</summary>
+
+
+### 1. **Delete the Branch on the Remote:**
+   Use the following command to delete the branch from the remote repository. For example, if your remote is named `origin` and your branch is called `branch_name`, the command would be:
+
+   ```bash
+   git push origin --delete branch_name
+   ```
+
+   This deletes the branch from the remote.
+
+### 2. **Delete the Branch Locally:**
+   If you also want to delete the branch locally (optional), run:
+
+   ```bash
+   git branch -d branch_name
+   ```
+
+   If the branch hasn't been merged, you might have to use `-D` instead of `-d` to force delete it:
+
+   ```bash
+   git branch -D branch_name
+   ```
+
+### 3. **Update Local Tracking of Remote Branches:**
+   To reflect the remote changes (removing the deleted branch) locally, you can clean up references to the deleted branch:
+
+   ```bash
+   git fetch -p
+   ```
+
+   The `-p` option tells `git fetch` to prune deleted branches from your local list of remote-tracking branches.
+</details>
