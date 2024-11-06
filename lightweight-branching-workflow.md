@@ -38,8 +38,8 @@
    ```
    This will update your local knowledge of the remote repository, pulling down new branches and commits without modifying your working directory.
 
-   ### 3. **Switch to the Desired Branch**
-      Use the `git checkout` or `git switch` command to change to the branch you want to work on or run.
+### 3. **Switch to the Desired Branch**
+   Use the `git checkout` or `git switch` command to change to the branch you want to work on or run.
 
    - **If the branch is remote (you don’t have it locally yet), you can check it out directly like this:**
      ```powershell
