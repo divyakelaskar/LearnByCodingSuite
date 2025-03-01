@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trend Chart to xlsx</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+
+<canvas id="myCanvas" width="600" height="300"></canvas>
+<button id="exportBtn">Export to Excel</button>
+
+<script>
+    let salesData = [10, 25, 18, 30, 40, 35, 50, 55, 60, 65, 70, 75];
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "#F5F5F5";  
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.moveTo(50, 20);
+    ctx.lineTo(50, 250); 
+    ctx.lineTo(580, 250); 
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.strokeStyle = "#DDD";
+    ctx.lineWidth = 1;
+    for (let i = 1; i <= 5; i++) {
+        let y = 250 - i * 40;
+        ctx.beginPath();
+        ctx.moveTo(50, y);
+        ctx.lineTo(580, y);
+        ctx.stroke();
+    }
+
+    ctx.fillStyle = "#000";
+    ctx.font = "14px Arial";
+    for (let i = 0; i < months.length; i++) {
+        let x = 50 + (i * 45);
+        ctx.fillText(months[i], x, 270);
+    }
+    for (let i = 0; i <= 5; i++) {
+        let y = 250 - (i * 40);
+        ctx.fillText((i * 20) + "k", 15, y); 
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(50, 250 - salesData[0] * 2);
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 3;
+    for (let i = 1; i < salesData.length; i++) {
+        let x = 50 + (i * 45);
+        let y = 250 - (salesData[i] * 2);
+        ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = "red";
+    for (let i = 0; i < salesData.length; i++) {
+        let x = 50 + (i * 45);
+        let y = 250 - (salesData[i] * 2);
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    async function exportCanvasToExcel(canvasId, fileName) {
+        let canvas = document.getElementById(canvasId);
+        if (!canvas) {
+            alert("Canvas not found!");
+            return;
+        }
+
+        let imgData = canvas.toDataURL("image/png").split(",")[1];
+
+        let workbook = new ExcelJS.Workbook();
+        let worksheet = workbook.addWorksheet("Trend Chart");
+
+        worksheet.getColumn(2).width = 40;
+        worksheet.getRow(2).height = 100;
+
+        let imageId = workbook.addImage({
+            base64: imgData,
+            extension: "png",
+        });
+
+        worksheet.addImage(imageId, {
+            tl: { col: 1, row: 1 },
+            ext: { width: 500, height: 250 },
+        });
+
+        const buffer = await workbook.xlsx.writeBuffer();
+        let blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+        saveAs(blob, fileName || "trend_chart.xlsx");
+    }
+
+    document.getElementById("exportBtn").addEventListener("click", function () {
+        exportCanvasToExcel("myCanvas", "trend_chart.xlsx");
+    });
+</script>
+
+</body>
+</html>
