@@ -13,10 +13,10 @@ function App() {
     ], []);
 
     const columnData = [
-        { key: 'stock', retail: 120, wholesale: 230, label: 'Current Stock', filter: 'agTextColumnFilter' },
-        { key: 'sales1', retail: 150, wholesale: 300, label: 'Salesman 1', filter: true },
-        { key: 'sales2', retail: 60, wholesale: 4500, label: 'Salesman 2', filter: true },
-        { key: 'sales3', retail: 150, wholesale: 300, label: 'Salesman 3', filter: true },
+        { key: 'stock', retail: 120, wholesale: 230, label: 'Current Stock'},
+        { key: 'sales1', retail: 150, wholesale: 300, label: 'Salesman 1'},
+        { key: 'sales2', retail: 60, wholesale: 4500, label: 'Salesman 2'},
+        { key: 'sales3', retail: 150, wholesale: 300, label: 'Salesman 3'},
     ];
 
     const columnDefs = useMemo(() => {
@@ -30,7 +30,7 @@ function App() {
                         const value = params.data?.[col.key];
                         return `${value}`;
                     },
-                    filter: false,
+                    filter: 'agNumberColumnFilter',
                     sortable: true,
                     cellStyle: { whiteSpace: 'nowrap' },
                 },
@@ -50,7 +50,7 @@ function App() {
     }, [columnData]);
 
     return (
-        <div className="ag-theme-alpine" style={{ height: 400, width: 1500 }}>
+        <div className="ag-theme-alpine" style={{ height: 400, width: 1500, fontSize: '16px' }}>
             <AgGridReact
             theme='legacy'
                 rowData={rowData}
