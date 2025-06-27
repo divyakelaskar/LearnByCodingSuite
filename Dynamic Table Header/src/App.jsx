@@ -59,6 +59,7 @@ function App() {
                     flex: 1,
                     resizable: true,
                     filter: true,
+                    floatingFilter: true,
                     sortable: true,
                 }}
                 domLayout="autoHeight"
